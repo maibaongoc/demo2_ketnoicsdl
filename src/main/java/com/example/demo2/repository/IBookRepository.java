@@ -6,4 +6,5 @@ import com.example.demo2.entity.*;
 
 @Repository
 public interface IBookRepository extends JpaRepository<Book, Long> {
+
 }
