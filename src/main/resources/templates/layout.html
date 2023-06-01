@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+        lang="en">
 <head>
   <meta charset="UTF-8">
   <title>My App</title>
@@ -26,6 +29,14 @@
           <li class="nav-item"><a class="nav-link" href="/books/add">Add Book</a></li>
           <li class="nav-item"><a class="nav-link" href="/categories">List Categories</a></li>
           <li class="nav-item"><a class="nav-link" href="/categories/addcate">Add Category</a></li>
+          <li sec:authorize="isAuthenticated()">
+            <fomr th:action="@{/logout}" method="post">
+              <button class="btn btn-outline-danger" type="submit">Logout</button>
+            </fomr>
+          </li>
+          <li sec:authorize="!isAuthenticated()">
+            <a class="btn btn-outline-primary" href="/login">Login</a>
+          </li>
 
         </ul>
       </div>
